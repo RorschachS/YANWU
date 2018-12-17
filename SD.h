@@ -9,6 +9,7 @@
 #include <iostream>
 using namespace std;
 using namespace cv;
+float getDistance(CvPoint pointO, CvPoint pointA);
 int Smoke_init();
 void Smoke_create();
 void Smoke_destory();

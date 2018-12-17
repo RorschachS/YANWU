@@ -119,6 +119,19 @@ int ji_calc_video_file(void* predictor, const char* infn, const char* args, cons
 		res = SmokeDetect(img);
 		res = Rect(res.x * 2 + 200, res.y* 2, res.width * 2, res.height * 2);
 
+
+		//if (res.area > 3600)
+		//{
+		//	//多帧存在 且 帧差小，认为烟雾存在
+		//	//添加跟踪，res加入跟踪目标
+		//}
+		
+
+
+
+
+
+
 		t = (double)cvGetTickCount() - t;
 		double FPS = 1000 / (t / ((double)cvGetTickFrequency()*1000.));
 		//cout << "fps:" << FPS << endl;
@@ -205,7 +218,9 @@ int ji_calc_video_frame(void* predictor, JI_CV_FRAME* inframe, const char* args,
 		Num_res = 1;
 		//putText(img, "Smoke", Point(5, 50), CV_FONT_HERSHEY_COMPLEX_SMALL, 1.2, Scalar(0, 0, 255), 2, 8);
 		rectangle(img, res, Scalar(0, 0, 255), 2, 8, 0);
+		
 	}
+	
 	//namedWindow("img", CV_WINDOW_NORMAL);
 	//imshow("img", img);
 	//writer << img;
@@ -218,13 +233,13 @@ int ji_calc_video_frame(void* predictor, JI_CV_FRAME* inframe, const char* args,
 	char nf[100];
 	//extern int frame_num;
 	//frame_num++;
-	sprintf_s(nf, "%d", 1);
-	cJSON_AddItemToObject(pJsonRoot, nf, nameList = cJSON_CreateArray());//(const char*)
-	cJSON_AddItemToArray(nameList, pJsonSub = cJSON_CreateObject());
-	cJSON_AddItemToObject(pJsonSub, "numOfSmogRects", cJSON_CreateNumber(Num_res));
-	cJSON_AddItemToObject(pJsonSub, "alertFlag", cJSON_CreateNumber(Smokeflg));
-	cJSON_AddItemToObject(pJsonSub, "smogInfo", nameList1 = cJSON_CreateArray());
-	cJSON_AddItemToArray(nameList1, pJsonSub1 = cJSON_CreateObject());
+	//sprintf_s(nf, "%d", 1);
+	//cJSON_AddItemToObject(pJsonRoot, nf, nameList = cJSON_CreateArray());//(const char*)
+	//cJSON_AddItemToArray(nameList, pJsonSub = cJSON_CreateObject());
+	////cJSON_AddItemToObject(pJsonSub, "numOfSmogRects", cJSON_CreateNumber(Num_res));
+	////cJSON_AddItemToObject(pJsonSub, "alertFlag", cJSON_CreateNumber(Smokeflg));
+	////cJSON_AddItemToObject(pJsonSub, "smogInfo", nameList1 = cJSON_CreateArray());
+	//cJSON_AddItemToArray(nameList1, pJsonSub1 = cJSON_CreateObject());
 	if (Smokeflg)
 	{
 		cJSON_AddItemToObject(pJsonSub1, "x", cJSON_CreateNumber(res.x));
@@ -233,13 +248,16 @@ int ji_calc_video_frame(void* predictor, JI_CV_FRAME* inframe, const char* args,
 		cJSON_AddItemToObject(pJsonSub1, "height", cJSON_CreateNumber(res.height));
 	}
 	event->code = Num_res;
-	printf("%s\n", cJSON_Print(pJsonRoot));
+	//printf("%s\n", cJSON_Print(pJsonRoot));
 
 	//delete[] event->json;
 	event->json = cJSON_Print(pJsonRoot);
 	cJSON_Delete(pJsonRoot);
 	img.release();
-	return 0;
+	if (Smokeflg)
+		return 1;
+	else
+		return 0;
 }
 
 int ji_calc(void* predictor, const unsigned char* buffer, int length,

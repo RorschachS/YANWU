@@ -158,6 +158,7 @@
     <ClCompile Include="..\demo.cpp" />
     <ClCompile Include="..\ji.cpp" />
     <ClCompile Include="..\SD_10.31分块分类检测.cpp" />
+    <ClCompile Include="hsi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
