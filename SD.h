@@ -15,3 +15,6 @@ void Smoke_create();
 void Smoke_destory();
 Rect SmokeDetect(Mat frame);
 Rect SmokeDetect_img(Mat frame_src);
+void on_HChange(int,void*);
+void on_SChange(int, void*);
+void on_VChange(int, void*);
