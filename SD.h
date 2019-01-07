@@ -18,3 +18,4 @@ Rect SmokeDetect_img(Mat frame_src);
 void on_HChange(int,void*);
 void on_SChange(int, void*);
 void on_VChange(int, void*);
+//static void getBinMask(const Mat& comMask, Mat& binMask);

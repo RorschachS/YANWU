@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\CMT">
+      <UniqueIdentifier>{4dbaa5ea-38c0-41dd-9471-c4141e385438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\CMT">
+      <UniqueIdentifier>{ead5964c-3948-4643-b399-b7bab85363bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\cJSON.h">
@@ -23,6 +29,30 @@
     </ClInclude>
     <ClInclude Include="..\SD.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\CMT.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\common.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\Consensus.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\fastcluster.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\Fusion.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\Matcher.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\Tracker.h">
+      <Filter>头文件\CMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CMT\log.h">
+      <Filter>头文件\CMT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +67,27 @@
     </ClCompile>
     <ClCompile Include="..\SD_10.31分块分类检测.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\CMT.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\common.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\Consensus.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\fastcluster.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\Fusion.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\Matcher.cpp">
+      <Filter>源文件\CMT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CMT\Tracker.cpp">
+      <Filter>源文件\CMT</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

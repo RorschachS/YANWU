@@ -1,7 +1,12 @@
+
+
 #include "ji.h"
 #include "cJSON.h"
 #include <iostream>
 #include "SD.h"
+#include<opencv2/photo.hpp>
+
+
 //#pragma comment(lib, "DLL.lib") 
 using namespace std;
 void* predictor;
@@ -20,16 +25,52 @@ int main()
 	//const char* inpath = "D:\\TestVideo\\Smoke\\22.avi";
 	//const char* outpath = "F:\\BaiduNetdiskDownload\\烟雾识别\\res.avi";
 
-	//const char* inpath = "F:\\我的文档\\WeChat Files\\y760019473\\Files\\resultvideo\\test06_result.mp4";
-    const char* inpath = "C:\\Users\\www73\\Desktop\\Videos\\21_0.avi";
+	
+	//const char* inpath = "E:\\PotPlayer\\Capture\\C1-11.avi";
+	const char* inpath = "C:\\Users\\www73\\Desktop\\Videos\\21_0.avi";
+	//const char* inpath = "C:\\Users\\www73\\Desktop\\Videos\\test.avi";
 	//const char* inpath = "H:\\vidoes\\22.avi";
     //const char* inpath = "E:\\PotPlayer\\Capture\\001.avi";
-	//const char* inpath = "G:\\烟雾检测\\videos\\sWasteBasket.avi";
+	
+	const char* img_path1 = "C:\\Users\\www73\\Desktop\\Videos\\Pics\\dehaze.Bmp";
+	//const char* img_path2 = "C:\\Users\\www73\\Desktop\\Videos\\Pics\\background.png";
+	/*Mat temp = imread(img_path1);
+	cvtColor(temp, temp, CV_RGB2GRAY);
+
+	imshow("dehaze", temp);*/
+
+
+	//Mat img0 = imread(img_path1, -1),imageGray, inpainted;
+	//////Mat img2 = imread(img_path2, -1);
+	//Mat dark = darkChannel(img0);
+	//imshow("dark",dark);
+
+	//if (img0.empty())
+	//{
+	//	cout << "Couldn't open the image " << img_path1<< ". Usage: inpaint <image_name>\n" << endl;
+	//	return 0;
+	//}
+
+	//cvtColor(img0, imageGray, CV_RGB2GRAY, 0);
+	//Mat img = img0.clone();
+	//Mat inpaintMask = Mat::zeros(img.size(), CV_8U);//mask
+	//threshold(imageGray, inpaintMask, 200, 255, CV_THRESH_BINARY);
+	////Mat Kernel = getStructuringElement(MORPH_RECT, Size(3, 3));
+	//////对Mask膨胀处理，增加Mask面积
+	////dilate(inpaintMask, inpaintMask, Kernel);
+
+	////inpaint(img, inpaintMask, inpainted, 3, CV_INPAINT_TELEA);//CV_INPAINT_NS
+	//inpaint(img, inpaintMask, inpainted, 3, CV_INPAINT_TELEA);
+	//imshow("inpainted image", inpainted);
+
 
 	const char* outpath = "F:\\BaiduNetdiskDownload\\烟雾识别\\res.avi";
 
 	const char* img_inpath = "D:\\Code\\Visual Studio 2015\\Projects\\雾气检测\\雾气检测\\data\\1.jpg";
 	const char* img_outpath = "D:\\Code\\Visual Studio 2015\\Projects\\雾气检测\\雾气检测\\data\\ressss.jpg";
+
+
+	//gexiangyixing();
 
 	int S_init = ji_init(0, &license);
 	if (S_init == 0)
